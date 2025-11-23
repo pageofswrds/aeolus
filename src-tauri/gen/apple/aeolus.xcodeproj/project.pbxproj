@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		1528B60507AC38CF948FC072 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8677E47F4230D7FDD52B273 /* Security.framework */; };
 		1610606A432F40C3145DD18E /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9358ABC2ECC4B0D284C21C82 /* Metal.framework */; };
 		1C3EB98C0DF6142DBAAD5B12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE6B8B64B106139C3DF9F9B /* QuartzCore.framework */; };
+		2936786BFD17ABB7A68215C4 /* libapp.a in Resources */ = {isa = PBXBuildFile; fileRef = 89499AFCE60EC936D96A769E /* libapp.a */; };
 		4230C490F79F6BCB3F2A0EDB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BACD2EB03345597E1BCD543 /* WebKit.framework */; };
 		7314A900ED23803C25526DD9 /* libapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4B8A07CAF13B5DEEAC4372 /* libapp.a */; };
 		78CA7F12724DE5D2B9923384 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3E9DFCCBAB31B88E6A8415 /* MetalKit.framework */; };
@@ -24,15 +25,16 @@
 /* Begin PBXFileReference section */
 		18763239657F31BA6560D57D /* bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bindings.h; sourceTree = "<group>"; };
 		1BACD2EB03345597E1BCD543 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		1F10C3CB0F2AAC44BF4EDD67 /* aeolus_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = aeolus_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F10C3CB0F2AAC44BF4EDD67 /* aeolus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aeolus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3E9DFCCBAB31B88E6A8415 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		553C751EBA9004D4B9B3B7DD /* lib.rs */ = {isa = PBXFileReference; path = lib.rs; sourceTree = "<group>"; };
+		553C751EBA9004D4B9B3B7DD /* lib.rs */ = {isa = PBXFileReference; lastKnownFileType = text; path = lib.rs; sourceTree = "<group>"; };
 		6015D38C21FA828A9554BF91 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		6D499F7CD7BEA1CD19001979 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = SOURCE_ROOT; };
 		8145AB05BF23559A1D5EBD3F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		89499AFCE60EC936D96A769E /* libapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libapp.a; sourceTree = "<group>"; };
 		8DE6B8B64B106139C3DF9F9B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8F3D729E77B353ECA7B5EB48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		901A564F44EC46C528EC981D /* main.rs */ = {isa = PBXFileReference; path = main.rs; sourceTree = "<group>"; };
+		901A564F44EC46C528EC981D /* main.rs */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.rs; sourceTree = "<group>"; };
 		9358ABC2ECC4B0D284C21C82 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		9A2A7D4222CF1B66A47DD201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9B337A5680BDD7601C13EEF7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,11 +63,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15D74E29B74969924BC131BD /* arm64 */ = {
+			isa = PBXGroup;
+			children = (
+				3B774F7419BA0C108A084C8B /* debug */,
+			);
+			path = arm64;
+			sourceTree = "<group>";
+		};
 		289628F3F4E70A8D815A362F /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				15D74E29B74969924BC131BD /* arm64 */,
 			);
 			path = Externals;
+			sourceTree = "<group>";
+		};
+		3B774F7419BA0C108A084C8B /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				89499AFCE60EC936D96A769E /* libapp.a */,
+			);
+			path = debug;
 			sourceTree = "<group>";
 		};
 		58FE4ACB049A930905A3FC72 /* Frameworks */ = {
@@ -103,7 +122,7 @@
 		871375B29AA6B7E725FA5012 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F10C3CB0F2AAC44BF4EDD67 /* aeolus_iOS.app */,
+				1F10C3CB0F2AAC44BF4EDD67 /* aeolus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,7 +189,7 @@
 			packageProductDependencies = (
 			);
 			productName = aeolus_iOS;
-			productReference = 1F10C3CB0F2AAC44BF4EDD67 /* aeolus_iOS.app */;
+			productReference = 1F10C3CB0F2AAC44BF4EDD67 /* aeolus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -192,7 +211,6 @@
 			);
 			mainGroup = C433D8C747C9261FB6D2965E;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -209,6 +227,7 @@
 				A58AB08D71D7C8BB189EF0FB /* Assets.xcassets in Resources */,
 				9FE04C8300805FF8A14CF7CE /* LaunchScreen.storyboard in Resources */,
 				8E71B3693F8C68937B414B5A /* assets in Resources */,
+				2936786BFD17ABB7A68215C4 /* libapp.a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,12 +273,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ARCHS = (
-					arm64,
-				);
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = aeolus_iOS/aeolus_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 497QWRKRQH;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = x86_64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -271,10 +290,23 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				"LIBRARY_SEARCH_PATHS[arch=arm64]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
-				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = "$(inherited) $(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION)",
+					"$(SDKROOT)/usr/lib/swift",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION)",
+					"$(SDKROOT)/usr/lib/swift",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = zojer.studio.aeolus;
-				PRODUCT_NAME = "aeolus";
+				PRODUCT_NAME = aeolus;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;
@@ -341,12 +373,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ARCHS = (
-					arm64,
-				);
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = aeolus_iOS/aeolus_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 497QWRKRQH;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = x86_64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -358,10 +390,23 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				"LIBRARY_SEARCH_PATHS[arch=arm64]" = "$(inherited) $(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
-				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = "$(inherited) $(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION) $(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)";
+				"LIBRARY_SEARCH_PATHS[arch=arm64]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/arm64/$(CONFIGURATION)",
+					"$(SDKROOT)/usr/lib/swift",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/x86_64/$(CONFIGURATION)",
+					"$(SDKROOT)/usr/lib/swift",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = zojer.studio.aeolus;
-				PRODUCT_NAME = "aeolus";
+				PRODUCT_NAME = aeolus;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;
