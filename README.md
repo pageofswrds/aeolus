@@ -81,6 +81,36 @@ pnpm tauri icon path/to/icon.png
 
 All runtime assets (images, fonts, videos) are bundled by Vite into dist/, then packaged into each platform's app. No platform-specific asset handling is needed - your React code and file structure remain identical across all targets.
 
+## TailwindCSS Implementation
 
-### Components & Styles
-We are using tailwind. I love tailwind. That is all x
+### Semantic Color System
+This project uses a **semantic color system** with prefixed tokens instead of traditional named colors. Colors are organized into four categories:
+
+- **`tx-`** Text colors (primary, secondary, tertiary, disabled, brand)
+- **`bg-`** Background colors (base, card, hover, pressed, button, brand)
+- **`ic-`** Icon colors (same structure as text)
+- **`bd-`** Border colors (base, primary, hover, pressed, brand)
+
+### Two-Layer Architecture
+
+**Primitive Colors** (in `src/index.css`):
+- Base color values like `--dark-800`, `--light-100`, `--brand`
+- Change these to customize your entire color scheme
+
+**Semantic Mappings** (in `tailwind.config.ts`):
+- Reference primitives with consistent opacity levels
+- Provide meaningful names like `text-tx-primary`, `bg-bg-card`
+
+
+### About shadcn/ui
+
+We use shadcn/ui for our component library. Unlike traditional component libraries, shadcn/ui copies components directly into your codebase rather than installing them as dependencies. It's built on top of Radix UI (unstyled, accessible primitives) and styled with Tailwind CSS, giving you full ownership and customization control. When you run pnpx shadcn@latest add button, it downloads the component source code into src/components/ui/, which you can then modify freely.
+
+### Adding shadcn/ui Components
+
+When installing new shadcn/ui components, you'll need to migrate their color tokens to our semantic system. See ./SHADCN_MIGRATION_GUIDE.md for:
+- Complete mapping table (shadcn → semantic)
+- Step-by-step migration protocol
+- Edge case handling rules
+- Examples and testing checklist
+
