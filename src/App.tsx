@@ -15,7 +15,10 @@ function App() {
 
   return (
     <main className="container">
-      <h1>Welcome to Tauri + React</h1>
+      <h1 className="text-lg font-600">Welcome to Tauri + React</h1>
+      <p className="text-sm text-tx-secondary">
+        Now with semantic color system & typography
+      </p>
 
       <div className="row">
         <a href="https://vite.dev" target="_blank">
@@ -28,7 +31,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+      <p className="text-tx-secondary">
+        Click on the Tauri, Vite, and React logos to learn more.
+      </p>
 
       <form
         className="row"
@@ -39,12 +44,16 @@ function App() {
       >
         <input
           id="greet-input"
+          className="bg-bg border-bd-primary text-tx-primary"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="Enter a name..."
         />
-        <Button type="submit">Greet with shadcn/ui</Button>
+        <Button type="submit">Greet</Button>
+        <Button type="button" variant="brand">
+          Brand Button
+        </Button>
       </form>
-      <p>{greetMsg}</p>
+      <p className="text-tx-brand font-500">{greetMsg}</p>
     </main>
   );
 }
