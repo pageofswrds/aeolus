@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Logo animations */
 .logo.vite:hover {
   filter: drop-shadow(0 0 2em #747bff);
@@ -39,41 +41,39 @@ a {
 }
 
 a:hover {
-  @apply text-tx-brand;
+  color: hsl(var(--color-brand) / 0.95);
 }
 
 h1 {
   text-align: center;
 }
 
-input,
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-button {
-  cursor: pointer;
-}
-
-button:hover {
-  @apply border-bd-brand;
-}
-
-button:active {
-  @apply border-bd-brand bg-bg-pressed;
-}
-
-input,
-button {
+input {
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid hsl(var(--color-dark-800) / 0.15);
+  background-color: hsl(var(--color-light-100));
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   outline: none;
 }
+
+input:focus {
+  border-color: hsl(var(--color-brand) / 0.55);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-color: hsl(var(--color-brand) / 0.5);
+}
+
+input::placeholder {
+  color: hsl(var(--color-dark-800) / 0.5);
+}
+
+/* Note: button styles come from shadcn/ui Button component */
 
 #greet-input {
   margin-right: 5px;

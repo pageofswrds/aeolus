@@ -1,32 +1,119 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   LAYER 1: PRIMITIVE DESIGN TOKENS
+   These are the raw color values that everything else references
+   ============================================================================ */
 @layer base {
   :root {
-    /* Primitive Colors - Neutral Grayscale Base */
-    --dark-900: 220 10% 10%;
-    --dark-800: 220 10% 20%;
-    --dark-700: 220 10% 30%;
-    --light-100: 0 0% 98%;
-    --light-200: 220 10% 95%;
-    --light-300: 220 10% 90%;
-    --light-600: 220 10% 60%;
-    --brand: 220 70% 50%;
-
-    /* Border radius */
-    --radius: 0.5rem;
+    /* Primitive Colors - Light Mode */
+    --color-dark-900: 220 10% 10%;
+    --color-dark-800: 220 10% 20%;
+    --color-dark-700: 220 10% 30%;
+    --color-light-100: 0 0% 98%;
+    --color-light-200: 220 10% 95%;
+    --color-light-300: 220 10% 90%;
+    --color-light-600: 220 10% 60%;
+    --color-brand: 220 70% 50%;
   }
 
   .dark {
-    /* Dark Mode Primitives - Inverted with adjusted contrasts */
-    --dark-900: 220 10% 90%;
-    --dark-800: 220 10% 85%;
-    --dark-700: 220 10% 75%;
-    --light-100: 220 15% 10%;
-    --light-200: 220 15% 12%;
-    --light-300: 220 15% 15%;
-    --light-600: 220 10% 40%;
-    --brand: 220 70% 60%;
+    /* Primitive Colors - Dark Mode (inverted with adjusted contrasts) */
+    --color-dark-900: 220 10% 90%;
+    --color-dark-800: 220 10% 85%;
+    --color-dark-700: 220 10% 75%;
+    --color-light-100: 220 15% 10%;
+    --color-light-200: 220 15% 12%;
+    --color-light-300: 220 15% 15%;
+    --color-light-600: 220 10% 40%;
+    --color-brand: 220 70% 60%;
   }
+}
+
+/* ============================================================================
+   LAYER 2: SEMANTIC UTILITIES VIA @theme
+   These create Tailwind utility classes from the primitive tokens
+   ============================================================================ */
+@theme {
+  /* Typography */
+  --font-sans: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --font-size-xs: 0.813rem;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.625rem;
+  --font-size-xl: 2.063rem;
+
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+
+  /* Text Color Utilities (creates text-tx-*, text-tx-primary, etc.) */
+  --color-tx: hsl(var(--color-dark-800));
+  --color-tx-body: hsl(var(--color-dark-800) / 0.95);
+  --color-tx-primary: hsl(var(--color-dark-800));
+  --color-tx-secondary: hsl(var(--color-dark-800) / 0.7);
+  --color-tx-tertiary: hsl(var(--color-dark-800) / 0.5);
+  --color-tx-disabled: hsl(var(--color-dark-800) / 0.22);
+  --color-tx-button: hsl(var(--color-light-100));
+  --color-tx-brand: hsl(var(--color-brand) / 0.95);
+  --color-tx-brand-disabled: hsl(var(--color-brand) / 0.35);
+
+  /* Icon Color Utilities (creates text-ic-*, bg-ic-*, etc.) */
+  --color-ic: hsl(var(--color-dark-800));
+  --color-ic-primary: hsl(var(--color-dark-800) / 0.9);
+  --color-ic-secondary: hsl(var(--color-dark-800) / 0.6);
+  --color-ic-tertiary: hsl(var(--color-dark-800) / 0.4);
+  --color-ic-disabled: hsl(var(--color-dark-800) / 0.15);
+  --color-ic-button: hsl(var(--color-light-100));
+  --color-ic-brand: hsl(var(--color-brand) / 0.9);
+  --color-ic-brand-disabled: hsl(var(--color-brand) / 0.5);
+
+  /* Background Color Utilities (creates bg-*, bg-base, bg-card, etc.) */
+  --color-bg: hsl(var(--color-light-100));
+  --color-bg-base: hsl(var(--color-light-200));
+  --color-bg-card: hsl(var(--color-light-100));
+  --color-bg-card-hover: hsl(var(--color-light-200));
+  --color-bg-card-pressed: hsl(var(--color-light-300));
+  --color-bg-primary: hsl(var(--color-dark-800) / 0.08);
+  --color-bg-secondary: hsl(var(--color-dark-800) / 0.03);
+  --color-bg-hover: hsl(var(--color-dark-800) / 0.12);
+  --color-bg-pressed: hsl(var(--color-dark-800) / 0.15);
+  --color-bg-disabled: hsl(var(--color-dark-800) / 0.04);
+  --color-bg-brand: hsl(var(--color-brand) / 0.12);
+  --color-bg-brand-hover: hsl(var(--color-brand) / 0.18);
+  --color-bg-brand-pressed: hsl(var(--color-brand) / 0.22);
+  --color-bg-brand-disabled: hsl(var(--color-brand) / 0.06);
+  --color-bg-button: hsl(var(--color-dark-800));
+  --color-bg-button-hover: hsl(var(--color-dark-900) / 0.9);
+  --color-bg-button-pressed: hsl(var(--color-dark-900));
+  --color-bg-button-disabled: hsl(var(--color-dark-800) / 0.15);
+  --color-bg-button-brand: hsl(var(--color-brand));
+
+  /* Border Color Utilities (creates border-bd-*, border-bd-primary, etc.) */
+  --color-bd: hsl(var(--color-light-600) / 0.2);
+  --color-bd-base: hsl(var(--color-light-600) / 0.15);
+  --color-bd-card: hsl(var(--color-light-600) / 0.25);
+  --color-bd-primary: hsl(var(--color-dark-800) / 0.15);
+  --color-bd-secondary: hsl(var(--color-dark-800) / 0.08);
+  --color-bd-hover: hsl(var(--color-dark-800) / 0.17);
+  --color-bd-pressed: hsl(var(--color-dark-800) / 0.18);
+  --color-bd-disabled: hsl(var(--color-dark-800) / 0.05);
+  --color-bd-brand: hsl(var(--color-brand) / 0.55);
+  --color-bd-brand-hover: hsl(var(--color-brand) / 0.6);
+  --color-bd-brand-pressed: hsl(var(--color-brand) / 0.63);
+  --color-bd-brand-disabled: hsl(var(--color-brand) / 0.15);
+
+  /* Special Purpose Utilities */
+  --color-brand: hsl(var(--color-brand));
+  --color-input: hsl(var(--color-light-600) / 0.2);
+  --color-ring: hsl(var(--color-brand) / 0.5);
+
+  /* Border Radius Utilities */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
 /* Global styles */

@@ -44,7 +44,6 @@ function App() {
       >
         <input
           id="greet-input"
-          className="bg-bg border-bd-primary text-tx-primary"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="Enter a name..."
         />

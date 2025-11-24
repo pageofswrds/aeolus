@@ -31,6 +31,7 @@ Aeolus is the greek god of the winds and air. I have no idea how relevant this i
  - npm install → pnpm install
  - npm add → pnpm add
  - npm run → pnpm (you can skip "run")
+ 4. Make sure you have the iOS simulator running before running pnpm tauri ios dev!
 
 ---
 
