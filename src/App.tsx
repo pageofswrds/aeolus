@@ -15,19 +15,19 @@ function App() {
 
   return (
     <main className="container">
-      <h1 className="text-lg font-600">Welcome to Tauri + React</h1>
-      <p className="text-sm text-tx-secondary">
+      <h1 className="font-600 text-lg">Welcome to Tauri + React</h1>
+      <p className="text-tx-secondary text-sm">
         Now with semantic color system & typography
       </p>
 
       <div className="row">
-        <a href="https://vite.dev" target="_blank">
+        <a href="https://vite.dev" target="_blank" rel="noreferrer">
           <img src="/vite.svg" className="logo vite" alt="Vite logo" />
         </a>
-        <a href="https://tauri.app" target="_blank">
+        <a href="https://tauri.app" target="_blank" rel="noreferrer">
           <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
@@ -42,10 +42,14 @@ function App() {
           greet();
         }}
       >
+        <label htmlFor="greet-input" className="sr-only">
+          Name
+        </label>
         <input
           id="greet-input"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="Enter a name..."
+          aria-label="Enter your name"
         />
         <Button type="submit">Greet</Button>
         <Button type="button" variant="brand">
