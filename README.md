@@ -1,5 +1,5 @@
 # Tauri + React + Typescript
-Aeolus is the greek god of the winds and air. I have no idea how relevant this is, I just thought it sounded cool. lol. I am curious about exploring emergent behaviour in complex systems. No idea how this will take shape, but it will probably involve agent based models and some sort of simulation.
+Aeolus is the greek god of the winds and air. I have no idea how relevant this is, I just thought it sounded cool. lol. This repo provides a starting point for app development. It should be set up for desktop, as well as Android and iOS development. It's also set up with my personal tailwind config. As for using this - I am curious about exploring cybernetics + emergent behaviour in complex systems. No idea how this will take shape, but it will probably involve agent based models and some sort of simulation.
 
 ## Getting Started
 
