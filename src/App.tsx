@@ -52,9 +52,6 @@ function App() {
           aria-label="Enter your name"
         />
         <Button type="submit">Greet</Button>
-        <Button type="button" variant="brand">
-          Brand Button
-        </Button>
       </form>
       <p className="text-tx-brand font-500">{greetMsg}</p>
     </main>
