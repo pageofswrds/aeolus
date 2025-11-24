@@ -29,7 +29,61 @@ pnpm install
 pnpm tauri dev  # macOS desktop app
 ```
 
-That's it! The app should launch on your desktop. See the Quick Command Reference below for running on mobile platforms.
+That's it! The app should launch on your desktop.
+
+### Running on iOS
+
+**1. Install iOS Rust compilation targets:**
+```bash
+rustup target add aarch64-apple-ios aarch64-apple-ios-sim x86_64-apple-ios
+```
+
+**2. Run on iOS simulator:**
+```bash
+pnpm tauri ios dev
+```
+
+The first time you run this command, Tauri will generate the Xcode project (in `src-tauri/gen/ios/`). After that, Tauri will prompt you to select an available simulator, which it will automatically start for you. You can skip the prompt by specifying the simulator name:
+
+```bash
+pnpm tauri ios dev "iPhone 16 Pro"
+```
+
+### Running on Android
+
+Android development requires additional setup beyond installing Android Studio:
+
+**1. Install Android Studio and SDK components:**
+   - Download [Android Studio](https://developer.android.com/studio)
+   - Open SDK Manager and install:
+     - Android SDK Platform (API Level 24 or higher)
+     - Android SDK Platform-Tools
+     - NDK (Side by side)
+     - Android SDK Build-Tools
+     - Android SDK Command-line Tools
+
+**2. Set environment variables** (add to `~/.zshrc` or `~/.bash_profile`):
+```bash
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+```
+
+After adding these, restart your terminal or run `source ~/.zshrc` (or `~/.bash_profile`).
+
+**3. Install Android Rust compilation targets:**
+```bash
+rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
+```
+
+**4. Run the development server:**
+```bash
+pnpm tauri android dev
+```
+
+The first time you run this command, Tauri will generate the Android project (in `src-tauri/gen/android/`). The command will start the dev server and launch an Android emulator.
+
+See the Quick Command Reference below for additional platform commands.
 
 ### Quick command reference:
 
@@ -61,7 +115,6 @@ That's it! The app should launch on your desktop. See the Quick Command Referenc
  - npm install → pnpm install
  - npm add → pnpm add
  - npm run → pnpm (you can skip "run")
- 4. Make sure you have the iOS simulator running before running pnpm tauri ios dev!
 
 ---
 
@@ -78,8 +131,8 @@ All development happens in the main project directory:
  - **Frontend:** `src/` contains our React + TypeScript UI components
  - **Backend:** `src-tauri/src/` contains Rust code for system-level operations
  - **Configuration:** `src-tauri/tauri.conf.json` defines app-wide settings
- - The iOS project is generated (in src-tauri/gen/ios/).
- - The Android project is generated (in src-tauri/gen/android/).
+ - **iOS project:** Auto-generated in `src-tauri/gen/ios/` on first run of `pnpm tauri ios dev`
+ - **Android project:** Auto-generated in `src-tauri/gen/android/` on first run of `pnpm tauri android dev`
 
 
 ### Mental Model
