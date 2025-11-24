@@ -1,5 +1,35 @@
 # Tauri + React + Typescript
-Aeolus is the greek god of the winds and air. I have no idea how relevant this is, I just thought it sounded cool. lol. I am curious about exploring emergent behaviour in complex systems. No idea how this will take shape, but it will probably involve agent based models and some sort of simulation. 
+Aeolus is the greek god of the winds and air. I have no idea how relevant this is, I just thought it sounded cool. lol. I am curious about exploring emergent behaviour in complex systems. No idea how this will take shape, but it will probably involve agent based models and some sort of simulation.
+
+## Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/installation) (package manager)
+- [Rust](https://www.rust-lang.org/tools/install) (for Tauri backend)
+- **macOS only:** Xcode Command Line Tools (`xcode-select --install`)
+- **iOS development:** Xcode from the Mac App Store
+- **Android development:** Android Studio with SDK and NDK
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd aeolus
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Run the development server:
+```bash
+pnpm tauri dev  # macOS desktop app
+```
+
+That's it! The app should launch on your desktop. See the Quick Command Reference below for running on mobile platforms.
 
 ### Quick command reference:
 
